@@ -3,11 +3,11 @@ import type {SchemaObject, JTDParser} from "../dist/jtd"
 import _AjvJTD from "./ajv_jtd"
 import getAjvInstances from "./ajv_instances"
 import {withStandalone} from "./ajv_standalone"
-import jtdValidationTests = require("./json-typedef-spec/tests/validation.json")
-import jtdInvalidSchemasTests = require("./json-typedef-spec/tests/invalid_schemas.json")
+import jtdValidationTests from "./json-typedef-spec/tests/validation.json"
+import jtdInvalidSchemasTests from "./json-typedef-spec/tests/invalid_schemas.json"
 // tests from https://github.com/nst/JSONTestSuite
-import jsonParseTests = require("./json_parse_tests.json")
-import assert = require("assert")
+import jsonParseTests from "./json_parse_tests.json"
+import assert from "node:assert"
 import AjvPack from "../dist/standalone/instance"
 
 interface TestCase {
@@ -54,7 +54,7 @@ interface JTDError {
 
 const ONLY: RegExp[] = []
 
-describe.skip("JSON Type Definition", () => {
+describe("JSON Type Definition", () => {
   describe("validation", function () {
     this.timeout(10000)
     let ajvs: AjvJTD[]
